@@ -19,3 +19,5 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
  - Lucas Braida
  - Rodrigo Lemos
  - Vinay Rao
+
+[Quill Bill](https://github.com/lucasrrt/Quill-Bill)
