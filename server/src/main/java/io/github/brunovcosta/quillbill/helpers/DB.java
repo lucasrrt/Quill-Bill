@@ -34,6 +34,27 @@ public class DB {
 		}
 	}
 
+	public static int update(String sql){
+		Connection connection = null;
+		Statement statement = null;
+		try {
+			Class.forName("org.postgresql.Driver");
+
+			connection = DriverManager.getConnection("jdbc:postgresql://"+HOST+":"+PORT+"/"+DATABASE,USERNAME,PASSWORD);
+			statement = connection.createStatement();
+			int updated_count = statement.executeUpdate(sql);
+
+			//statement.close();
+			//connection.close();
+
+			return updated_count;
+		} catch (Exception e) {
+			System.out.println("Connection Failed! Check output console");
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
 	static public String table2string(ResultSet resultSet){
 		try{
 			ResultSetMetaData rsmd = resultSet.getMetaData();
