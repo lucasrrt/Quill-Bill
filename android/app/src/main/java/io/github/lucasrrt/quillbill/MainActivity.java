@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         bills_list = (ListView) findViewById(R.id.output);
         bills_count = (TextView) findViewById(R.id.bills_count);
-        //TODO preencher bills_list
         AJAXCall.HTTPCallback<String> callback = (data)->{
             try{
                 JSONArray array = new JSONArray(data);
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 for(int t = 0; t<array.length(); t++){
                     stringArray[t] = array.getJSONObject(t).getString("name");
                 }
-                bills_list.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1, stringArray));
+                bills_list.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, android.R.id.text1, stringArray));
 
             } catch (Exception e){
                 e.printStackTrace();
