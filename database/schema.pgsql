@@ -44,3 +44,10 @@ create table expenses_users(
 );
 create index expenses_users_user_id_idx on expenses_users(user_id);
 create index expenses_users_expense_id_idx on expenses_users(expense_id);
+
+create sequence authentications_id_seq start 1;
+create table authentications(
+	id integer not null primary key default nextval('authentications_id_seq'),
+	token varchar not null unique
+);
+create index authentications_token_idx on authentications(token);
