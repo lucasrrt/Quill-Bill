@@ -1,8 +1,10 @@
 package io.github.brunovcosta.quillbill;
 import static spark.Spark.*;
 
+import io.github.brunovcosta.quillbill.controllers.UsersController;
+
 public class App {
     public static void main( String[] args ) {
-        get("/hello", (req, res) -> "Hello World");
+        get("/users", (req, res) -> UsersController.index(req.params()));
     }
 }
