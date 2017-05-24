@@ -12,7 +12,6 @@ public class UsersController extends RestController{
 		String username = req.queryParams("username");
 		String password_hash = req.queryParams("password");
 		
-		System.out.println(db.update("insert into users(username,password_hash) values (?,?)", username,password_hash));
 		return Integer.toString(db.update("insert into users(username,password_hash) values (?,?)", username,password_hash));
 	}
 }

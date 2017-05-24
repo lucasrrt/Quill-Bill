@@ -14,7 +14,7 @@ public class AuthenticationsController extends RestController{
 		String username = req.queryParams("username");
 		String hash = req.queryParams("password");
 
-		String id = db.query("select id from users where username = ? and password_hash = ?",username,hash).get(0).get("id");
+		int id = Integer.parseInt(db.query("select id from users where username = ? and password_hash = ?",username,hash).get(0).get("id"));
 
 		String token = HashHelper.hash();
 		db.update("insert into authentications(token,user_id) values (?,?)", token,id);

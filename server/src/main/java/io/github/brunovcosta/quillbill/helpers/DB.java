@@ -26,13 +26,13 @@ public class DB {
 		}
 	}
 
-	public ArrayList<HashMap<String, String>> query(String sql,String ... strings){
+	public ArrayList<HashMap<String, String>> query(String sql,Object ... strings){
 		try {
 			Class.forName("org.postgresql.Driver");
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			for(int i=0;i<strings.length;i++){
-				statement.setString(i+1, strings[i]);
+				statement.setObject(i+1, strings[i]);
 			}
 			ResultSet resultSet = statement.executeQuery();
 
@@ -46,13 +46,13 @@ public class DB {
 		}
 	}
 
-	public int update(String sql,String ... strings){
+	public int update(String sql,Object ... strings){
 		try {
 			Class.forName("org.postgresql.Driver");
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			for(int i=0;i<strings.length;i++){
-				statement.setString(i+1, strings[i]);
+				statement.setObject(i+1, strings[i]);
 			}
 			int updated_count = statement.executeUpdate();
 			statement.close();
