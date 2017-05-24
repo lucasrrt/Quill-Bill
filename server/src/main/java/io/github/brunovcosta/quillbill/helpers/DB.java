@@ -32,7 +32,7 @@ public class DB {
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			for(int i=0;i<strings.length;i++){
-				statement.setString(i, strings[i]);
+				statement.setString(i+1, strings[i]);
 			}
 			ResultSet resultSet = statement.executeQuery();
 
@@ -52,9 +52,9 @@ public class DB {
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			for(int i=0;i<strings.length;i++){
-				statement.setString(i, strings[i]);
+				statement.setString(i+1, strings[i]);
 			}
-			int updated_count = statement.executeUpdate(sql);
+			int updated_count = statement.executeUpdate();
 			statement.close();
 
 			return updated_count;
