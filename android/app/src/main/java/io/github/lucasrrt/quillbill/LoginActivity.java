@@ -86,4 +86,11 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void Force(View view){
+        intent = new Intent(this, MainActivity.class);
+        intent.putExtra("ID", "DefaultUser");
+        startActivity(intent);
+        finish();
+    }
 }
