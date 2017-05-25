@@ -16,7 +16,12 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 
 ## Servidor
 - [x] Schema banco de dados
-- [x] Base REST
+- [x] Base REST e comunicaço com o banco de dados
+- [x] UsersController
+- [x] AuthenticationsController
+- [ ] AuthorizationsController
+- [ ] BillsController
+- [ ] ExpensesController
 
 ## Requisitos
  - Java >=1.8
