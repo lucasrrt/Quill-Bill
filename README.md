@@ -28,6 +28,7 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 - [ ] AuthorizationsController
 - [ ] BillsController
 - [ ] ExpensesController
+- [ ] Deploy no Heroku
 
 ## Requisitos
  - Java >=1.8
