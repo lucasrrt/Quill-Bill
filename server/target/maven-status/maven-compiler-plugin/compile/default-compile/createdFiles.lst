@@ -1,1 +1,7 @@
+io/github/brunovcosta/quillbill/controllers/AuthenticationsController.class
+io/github/brunovcosta/quillbill/controllers/BillsController.class
 io/github/brunovcosta/quillbill/App.class
+io/github/brunovcosta/quillbill/controllers/UsersController.class
+io/github/brunovcosta/quillbill/helpers/HashHelper.class
+io/github/brunovcosta/quillbill/controllers/RestController.class
+io/github/brunovcosta/quillbill/helpers/DB.class

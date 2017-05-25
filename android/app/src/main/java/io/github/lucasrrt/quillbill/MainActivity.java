@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    String userId, url_pattern, port;
+    String username, token, url_pattern, port;
     TextView print, bills_count;
     ArrayList<JSONObject> bills;
     ListView bills_list;
@@ -37,26 +37,59 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        port = "4567";
-        url_pattern = "http://192.168.0.21:" + port + "/";
+        port = ((MyApplication) this.getApplication()).getPort();
+        url_pattern = ((MyApplication) this.getApplication()).getUrl_pattern();
+        token = ((MyApplication) this.getApplication()).getToken();
 
         print = (TextView) findViewById(R.id.print);
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if (extras == null) {
-                userId = null;
+                username = "Null";
             } else {
-                userId = extras.getString("ID");
+                username = extras.getString("USERNAME");
             }
         } else {
-            userId = (String) savedInstanceState.getSerializable("ID");
+            username = (String) savedInstanceState.getSerializable("USERNAME");
         }
-        helloUser();
+        //helloUser();
+        print.setText("Olá "+username);
 
         bills = new ArrayList<>();
 
         bills_list = (ListView) findViewById(R.id.output);
         bills_count = (TextView) findViewById(R.id.bills_count);
+        getBills();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+//    public void helloUser() {
+//        AJAXCall.HTTPCallback<String> callback = (data) -> {
+//            try {
+//                JSONArray array = new JSONArray(data);
+//                String username = array.getJSONObject(0).getString("username");
+//                print.setText("Olá " + username);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        };
+//
+//        AJAXCall.HTTPCallback<String> callbackError = (data) -> {
+//            try {
+//                Toast.makeText(this, "Erro na conexão", Toast.LENGTH_SHORT).show();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        };
+//
+//        String url = url_pattern + "users/";
+//        AJAXCall.get(url, null, callback, callbackError);
+//    }
+
+    public void getBills(){
         AJAXCall.HTTPCallback<String> callback = (data) -> {
             try {
                 JSONArray array = new JSONArray(data);
@@ -68,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //STOP HERE
                 bills_list.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id)->{
-                        Intent intent = new Intent(MainActivity.this, BillActivity.class);
-                        intent.putExtra("BILL", bills.get(position).toString());
-                        startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, BillActivity.class);
+                    intent.putExtra("BILL", bills.get(position).toString());
+                    startActivity(intent);
                 });
 
             } catch (Exception e) {
@@ -83,36 +116,15 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
             }
         };
+        try {
+            String url = url_pattern + "bills";
+            JSONObject params = new JSONObject();
 
-        String url = url_pattern + "bills/" + userId;
-        AJAXCall.get(url, null, callback, callbackError);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    public void helloUser() {
-        AJAXCall.HTTPCallback<String> callback = (data) -> {
-            try {
-                JSONArray array = new JSONArray(data);
-                String username = array.getJSONObject(0).getString("username");
-                print.setText("Olá " + username);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
-
-        AJAXCall.HTTPCallback<String> callbackError = (data) -> {
-            try {
-                Toast.makeText(this, "Erro na conexão", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
-
-        String url = url_pattern + "users/" + userId;
-        AJAXCall.get(url, null, callback, callbackError);
+            params.put("token", token);
+            AJAXCall.get(url, params, callback, callbackError);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -1,1 +1,7 @@
-/home/bruno/git/IME/labProgIII/quillbill/src/main/java/io/github/brunovcosta/quillbill/App.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/controllers/BillsController.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/controllers/AuthenticationsController.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/helpers/DB.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/controllers/UsersController.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/controllers/RestController.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/helpers/HashHelper.java
+/home/ricarte/git/Quill-Bill/server/src/main/java/io/github/brunovcosta/quillbill/App.java

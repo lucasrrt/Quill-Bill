@@ -22,17 +22,20 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         port = "4567";
-        url_pattern = "http://192.168.0.21:"+port+"/";
+        url_pattern = "http://192.168.0.24:"+port+"/";
 
+        ((MyApplication) this.getApplication()).setPort(port);
+        ((MyApplication) this.getApplication()).setUrl_pattern(url_pattern);
     }
 
     public void SignIn (View view){
         AJAXCall.HTTPCallback<String> callback = (data)->{
             try{
                 //JSONArray array = new JSONArray(data);
+                ((MyApplication) this.getApplication()).setToken(data);
                 intent = new Intent(this, MainActivity.class);
                 //String strName = array.getJSONObject(0).getString("id");
-                //intent.putExtra("ID", strName);
+                intent.putExtra("USERNAME", username.getText().toString());
                 startActivity(intent);
                 finish();
             } catch (Exception e){
