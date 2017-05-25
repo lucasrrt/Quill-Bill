@@ -9,12 +9,12 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 
 # Andamento
 ## Cliente
-1.- [x] LoginActivity
- 1.- [x] Login
- 2.- [x] Signup
-2.- [ ] MainActivity
- 1.- [x] Show bills
- 2.- [ ] Create bills
+- [x] LoginActivity
+ - [x] Login
+ - [x] Signup
+- [ ] MainActivity
+ - [x] Show bills
+ - [ ] Create bills
 - [ ] Bill Activity
  - [ ] CRUD expenses
  - [ ] CRUD Users from bill
