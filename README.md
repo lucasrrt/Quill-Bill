@@ -9,27 +9,28 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 
 # Andamento
 ## Cliente
-- [x] Login
-- [x] Signup
-- [ ] Dashboard
-- [ ] Bill
+- [x] LoginActivity
+ - [x] Login
+ - [x] Signup
+- [ ] MainActivity
+ - [x] Show bills
+ - [ ] Create bills
+- [ ] Bill Activity
+ - [ ] CRUD expenses
+ - [ ] CRUD Users from bill
+ - [ ] Close bill
 
 ## Servidor
 - [x] Schema banco de dados
-- [x] Base REST e comunicaço com o banco de dados
-- [x] UsersController
-- [x] AuthenticationsController
-- [ ] AuthorizationsController
-- [ ] BillsController
-- [ ] ExpensesController
+- [x] Base REST
 
-# Requisitos
+## Requisitos
  - Java >=1.8
  - Maven >=3.3.9
  - PostgreSQL >= 9.5
  - Android Studio
 
-# Integrantes
+## Integrantes
  - Lucas Ricarte
  - Bruno Costa
  - Lucas Braida
