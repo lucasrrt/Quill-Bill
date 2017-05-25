@@ -9,13 +9,13 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 
 # Andamento
 ## Cliente
-- [x] LoginActivity
+### LoginActivity
  - [x] Login
  - [x] Signup
-- [ ] MainActivity
+### MainActivity
  - [x] Show bills
  - [ ] Create bills
-- [ ] Bill Activity
+### Bill Activity
  - [ ] CRUD expenses
  - [ ] CRUD Users from bill
  - [ ] Close bill
@@ -28,15 +28,14 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 - [ ] AuthorizationsController
 - [ ] BillsController
 - [ ] ExpensesController
-- [ ] Deploy no Heroku
 
-# Requisitos
+## Requisitos
  - Java >=1.8
  - Maven >=3.3.9
  - PostgreSQL >= 9.5
  - Android Studio
 
-# Integrantes
+## Integrantes
  - Lucas Ricarte
  - Bruno Costa
  - Lucas Braida
