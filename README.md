@@ -30,13 +30,13 @@ O servidor utiliza um banco de dados em [PostgreSQL](https://www.postgresql.org/
 - [ ] ExpensesController
 - [ ] Deploy no Heroku
 
-## Requisitos
+# Requisitos
  - Java >=1.8
  - Maven >=3.3.9
  - PostgreSQL >= 9.5
  - Android Studio
 
-## Integrantes
+# Integrantes
  - Lucas Ricarte
  - Bruno Costa
  - Lucas Braida
