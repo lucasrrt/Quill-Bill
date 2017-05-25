@@ -1,7 +1,7 @@
 create sequence users_id_seq start 1;
 create table users(
 	id integer not null primary key default nextval('users_id_seq'),
-	login varchar not null unique,
+	username varchar not null unique,
 	password_hash varchar not null
 );
 create index users_id_idx on users(id);
