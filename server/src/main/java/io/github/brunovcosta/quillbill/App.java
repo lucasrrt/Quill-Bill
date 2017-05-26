@@ -3,8 +3,8 @@ import static spark.Spark.*;
 
 import io.github.brunovcosta.quillbill.controllers.AuthenticationsController;
 import io.github.brunovcosta.quillbill.controllers.BillsController;
-import io.github.brunovcosta.quillbill.controllers.RestController;
 import io.github.brunovcosta.quillbill.controllers.UsersController;
+import io.github.brunovcosta.quillbill.lib.RestController;
 
 public class App {
 	public static void main( String[] args ) {

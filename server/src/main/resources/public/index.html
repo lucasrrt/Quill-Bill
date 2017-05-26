@@ -11,8 +11,97 @@
 		<b>Quill Bill</b> utiliza o padrão <a href="https://pt.wikipedia.org/wiki/REST">REST</a> para seu interfaceamento web.
 	</p>
 	<h2>Modelos</h2>
-	<h3>/users</h3>
-	<h3>/authentications</h3>
-	<h3>/bills</h3>
-	<h3>/expenses</h3>
+	<h3>REST /users</h3>
+	<h4>Propriedades</h4>
+	<table>
+		<thead>
+			<tr>
+				<td>Parâmetro</td>
+				<td>Tipo</td>
+				<td>Descrição</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>username</td>
+				<td>string</td>
+				<td>Nome de usuário, apenas letras miúsculas e números</td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td>string</td>
+				<td>Senha, quaisquer caracteres</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Respostas</h4>
+	<table>
+		<tbody>
+			<tr>
+				<td>index</td>
+				<td>Recupera uma lista com todos os usuários</td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td>Recupera as propriedades de um usuário com id = <code>user_id</code></td>
+			</tr>
+			<tr>
+				<td>update</td>
+				<td>Altera as propriedades de um usuário com id = <code>user_id</code></td>
+			</tr>
+			<tr>
+				<td>create</td>
+				<td>Cria um usuário com as propriedades passadas via parâmetros query</td>
+			</tr>
+			<tr>
+				<td>destroy</td>
+				<td>Deleta suário com id = <code>user_id</code></td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>REST /authentications</h3>
+	<table>
+		<thead>
+			<tr>
+				<td>Parâmetro</td>
+				<td>Tipo</td>
+				<td>Descrição</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>username</td>
+				<td>string</td>
+				<td>Nome de usuário, apenas letras miúsculas e números</td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td>string</td>
+				<td>Senha, quaisquer caracteres</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>REST /bills</h3>
+	<table>
+		<thead>
+			<tr>
+				<td>Parâmetro</td>
+				<td>Tipo</td>
+				<td>Descrição</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>user_id</td>
+				<td>int</td>
+				<td>Id do usuário</td>
+			</tr>
+			<tr>
+				<td>name</td>
+				<td>string</td>
+				<td>Nome da conta compartilhada, não precisa ser única. Pode receber qualquer string</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>REST /expenses</h3>
 </body>

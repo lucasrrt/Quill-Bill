@@ -1,4 +1,4 @@
-package io.github.brunovcosta.quillbill.helpers;
+package io.github.brunovcosta.quillbill.lib;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -10,6 +10,7 @@ create sequence bills_id_seq start 1;
 create table bills(
 	id integer not null primary key default nextval('bills_id_seq'),
 	name varchar not null,
+	description text not null,
 	user_id integer not null references  users(id)
 );
 create index bills_id_idx on bills(id);
@@ -28,7 +29,7 @@ create index bills_users_bill_id_idx on bills_users(bill_id);
 create sequence expenses_id_seq start 1;
 create table expenses(
 	id integer not null primary key default nextval('expenses_id_seq'),
-	name varchar not null,
+	description text not null,
 	amount numeric not null check(amount > 0),
 	user_id integer not null references  users(id),
 	bill_id integer not null references  bills(id)
