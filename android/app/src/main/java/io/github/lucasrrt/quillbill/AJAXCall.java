@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 public class AJAXCall {
     interface HTTPCallback<T>{
-        public void call(T t);
+        void call(T t);
     }
     static public void http(String method, String path, JSONObject params, HTTPCallback<String> callback, HTTPCallback<String> callbackError){
         AsyncTask task = new AsyncTask() {
@@ -33,7 +33,7 @@ public class AJAXCall {
                         Iterator<?> keys = params.keys();
                         while(keys.hasNext()){
                             String key = (String)keys.next();
-                            newPath+= URLEncoder.encode(key, StandardCharsets.UTF_8.toString())+"="+URLEncoder.encode(params.getString(key), StandardCharsets.UTF_8.toString());
+                            newPath+= URLEncoder.encode(key)+"="+URLEncoder.encode(params.getString(key));
                             if(keys.hasNext())
                                 newPath+="&";
                         }

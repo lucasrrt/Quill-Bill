@@ -22,17 +22,20 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         port = "4567";
-        url_pattern = "http://192.168.0.21:"+port+"/";
+        url_pattern = "http://192.168.0.24:"+port+"/";
 
+        ((MyApplication) this.getApplication()).setPort(port);
+        ((MyApplication) this.getApplication()).setUrl_pattern(url_pattern);
     }
 
     public void SignIn (View view){
         AJAXCall.HTTPCallback<String> callback = (data)->{
             try{
-                JSONArray array = new JSONArray(data);
+                //JSONArray array = new JSONArray(data);
+                ((MyApplication) this.getApplication()).setToken(data);
                 intent = new Intent(this, MainActivity.class);
-                String strName = array.getJSONObject(0).getString("id");
-                intent.putExtra("ID", strName);
+                //String strName = array.getJSONObject(0).getString("id");
+                intent.putExtra("USERNAME", username.getText().toString());
                 startActivity(intent);
                 finish();
             } catch (Exception e){
@@ -51,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             JSONObject login = new JSONObject();
             login.put("username", username.getText().toString());
             login.put("password", password.getText().toString());
-            AJAXCall.get(url, login, callback, callbackError);
+            AJAXCall.post(url, login, callback, callbackError);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -59,12 +62,13 @@ public class LoginActivity extends AppCompatActivity {
     public void SignUp (View view){
         AJAXCall.HTTPCallback<String> callback = (data)->{
             try{
-                JSONArray array = new JSONArray(data);
-                intent = new Intent(this, MainActivity.class);
-                String strName = array.getJSONObject(0).getString("id");
-                intent.putExtra("ID", strName);
-                startActivity(intent);
-                finish();
+//                JSONArray array = new JSONArray(data);
+//                intent = new Intent(this, MainActivity.class);
+//                String strName = array.getJSONObject(0).getString("id");
+//                intent.putExtra("ID", strName);
+//                startActivity(intent);
+//                finish();
+                Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -81,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             JSONObject login = new JSONObject();
             login.put("username", username.getText().toString());
             login.put("password", password.getText().toString());
-            AJAXCall.get(url, login, callback, callbackError);
+            AJAXCall.post(url, login, callback, callbackError);
         }catch(Exception e){
             e.printStackTrace();
         }
