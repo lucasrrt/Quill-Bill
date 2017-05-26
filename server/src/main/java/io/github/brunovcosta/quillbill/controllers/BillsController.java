@@ -31,14 +31,14 @@ public class BillsController extends ApplicationController {
 
 	@Override
 	public String show(Request req, Response res) {
-		Bill bill = Bill.findFirst("id = ?", req.queryParams("id"));
+		Bill bill = Bill.findFirst("id = ?", req.params(":id"));
 		
 		return bill.toJson(false, "name");
 	}
 
 	@Override
 	public String destroy(Request req, Response res) {
-		return Integer.toString(Bill.delete("id = ?", req.queryParams("id")));
+		return Integer.toString(Bill.delete("id = ?", req.params(":id")));
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package io.github.brunovcosta.quillbill.models;
 
-public class Authentication extends ApplicationModel{
+import org.javalite.activejdbc.Model;
+
+public class Authentication extends Model{
 
 }

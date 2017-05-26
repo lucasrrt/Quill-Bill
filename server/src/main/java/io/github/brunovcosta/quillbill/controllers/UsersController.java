@@ -23,14 +23,14 @@ public class UsersController extends ApplicationController{
 
 	@Override
 	public String show(Request req, Response res) {
-		int id = Integer.parseInt(req.queryParams("id"));
+		int id = Integer.parseInt(req.params(":id"));
 		User user = User.findById(id);
 		return user.toJson(false, "username");
 	}
 
 	@Override
 	public String destroy(Request req, Response res) {
-		int id = Integer.parseInt(req.queryParams("id"));
+		int id = Integer.parseInt(req.params(":id"));
 		int count = User.delete("id = ?",id);
 		return Integer.toString(count);
 	}
@@ -39,7 +39,7 @@ public class UsersController extends ApplicationController{
 	public String update(Request req, Response res) {
 		String username = req.queryParams("username");
 		String password = req.queryParams("password");
-		int id = Integer.parseInt(req.queryParams("id"));
+		int id = Integer.parseInt(req.params(":id"));
 		int count = User.updateAll("username = ? , password = ?","id = ?", username, password, id);
 
 		return Integer.toString(count);

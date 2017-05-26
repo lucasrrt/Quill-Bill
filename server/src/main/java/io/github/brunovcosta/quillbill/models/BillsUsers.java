@@ -1,5 +1,7 @@
 package io.github.brunovcosta.quillbill.models;
 
-public class BillsUsers extends ApplicationModel{
+import org.javalite.activejdbc.Model;
+
+public class BillsUsers extends Model{
 
 }

@@ -10,16 +10,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DB {
-	public String HOST = "localhost";
-	public String PORT = "5432";
-	public String DATABASE = "quillbill";
-	public String USERNAME = "postgres";
-	public String PASSWORD = "postgres";
+	public final String HOST = "localhost";
+	public final String PORT = "5432";
+	public final String DATABASE = "quillbill";
+	public final String USER = "postgres";
+	public final String PASSWORD = "postgres";
+	public final String DRIVER = "org.postgresql.Driver";
 
 	private Connection connection;
 	public DB(){
 		try{
-			connection = DriverManager.getConnection("jdbc:postgresql://"+HOST+":"+PORT+"/"+DATABASE,USERNAME,PASSWORD);
+			connection = DriverManager.getConnection("jdbc:postgresql://"+HOST+":"+PORT+"/"+DATABASE,USER,PASSWORD);
 		} catch (SQLException e) {
 			System.out.println("Connection Failed! Check output console");
 			e.printStackTrace();
@@ -28,7 +29,7 @@ public class DB {
 
 	public ArrayList<HashMap<String, String>> query(String sql,Object ... strings){
 		try {
-			Class.forName("org.postgresql.Driver");
+			Class.forName(DRIVER);
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			for(int i=0;i<strings.length;i++){

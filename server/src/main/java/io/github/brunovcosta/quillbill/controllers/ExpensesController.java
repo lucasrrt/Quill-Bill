@@ -32,18 +32,18 @@ public class ExpensesController extends ApplicationController {
 
 	@Override
 	public String show(Request req, Response res) {
-		Expense expense = Expense.findFirst("id = ?",req.queryParams("id"));
+		Expense expense = Expense.findFirst("id = ?",req.params(":id"));
 		return expense.toJson(false, "description","id","mount","bill_id");
 	}
 
 	@Override
 	public String destroy(Request req, Response res) {
-		return Integer.toString(Expense.delete("id = ?",req.queryParams("id")));
+		return Integer.toString(Expense.delete("id = ?",req.params(":id")));
 	}
 
 	@Override
 	public String update(Request req, Response res) {
-		int id = Integer.parseInt(req.queryParams("id"));
+		int id = Integer.parseInt(req.params(":id"));
 		int amount = Integer.parseInt(req.queryParams("amount"));
 		int count = Expense.update("id = ?", "amount = ?",id,amount);
 		return Integer.toString(count);
