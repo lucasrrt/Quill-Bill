@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         port = "4567";
-        url_pattern = "http://192.168.0.24:"+port+"/";
+        url_pattern = "http://192.168.0.21:"+port+"/";
 
         ((MyApplication) this.getApplication()).setPort(port);
         ((MyApplication) this.getApplication()).setUrl_pattern(url_pattern);
